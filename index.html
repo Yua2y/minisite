@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hello mirashli!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+
+  <style>
+    .rainbow-button {
+      background: linear-gradient(50deg, red, orange, yellow, green, blue, indigo, violet);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 150px;
+      transition: 0.3s;
+    }
+
+    .rainbow-button:hover {
+      opacity: 0.85;
+    }
+
+    .snowflake, .gift, .sock {
+      position: fixed;
+      top: 0;
+      font-size: 24px;
+      animation: fall linear;
+    }
+
+    .gift.red { color: red; }
+    .gift.blue { color: blue; }
+    .gift.green { color: green; }
+    .gift.yellow { color: gold; }
+
+    .sock {
+      color: hotpink;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">
+      <span style="color: pink">Who is THE KINGER(PIRASHKI(MIROCHLOV(PIDARAS(DP(MIRAS)))))?</span>
+    </h1>
+    <button id="option-a" class="rainbow-button" style="color: black">g'a'y</button>
+    <button id="option-b" class="rainbow-button" style="color: black">bisexual</button>
+    <button id="option-c" class="rainbow-button" style="color: black">natural</button>
+    <button id="option-e" class="rainbow-button" style="color: black">sacrifice of dpshka</button>
+    <button id="option-d" class="rainbow-button" style="color: black">neither, a lesbian</button>
+  </div>
+</section>
+
+<div id="alert-a" class="notification is-primary" style="display:none;">
+  <button class="delete" onclick="this.parentElement.style.display='none';"></button>
+  Partial solution! 50 points
+</div>
+<div id="alert-b" class="notification is-warner" style="display:none;">
+  <button class="delete" onclick="this.parentElement.style.display='none';"></button>
+  You are on a different way! 5 points
+</div>
+<div id="alert-e" class="notification is-success" style="display:none;">
+  <button class="delete" onclick="this.parentElement.style.display='none';"></button>
+  ACCEPTED! 100 points
+</div>
+<div id="alert-c" class="notification is-danger" style="display:none;">
+  <button class="delete" onclick="this.parentElement.style.display='none';"></button>
+  WRONG ANSWER! 0 points
+</div>
+<div id="alert-d" class="notification is-warner" style="display:none;">
+  <button class="delete" onclick="this.parentElement.style.display='none';"></button>
+  You are on a different way! 10 points
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+
+<!-- ✅ Рабочий JavaScript -->
+<script>
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    const colors = ['red', 'blue', 'green', 'yellow'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    snowflake.className = 'snowflake';
+    snowflake.innerText = 'hui️';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 10000);
+  }
+//❄️
+  function createGift() {
+    const gift = document.createElement('div');
+    const colors = ['red', 'blue', 'green', 'yellow'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    gift.className = `gift ${color}`;
+    gift.innerText = 'DP';
+    gift.style.left = Math.random() * window.innerWidth + 'px';
+    gift.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    document.body.appendChild(gift);
+    setTimeout(() => gift.remove(), 10000);
+  }
+
+  function createSock() {
+    const sock = document.createElement('div');
+    sock.className = 'sock';
+    sock.innerText = 'shka';
+    sock.style.left = Math.random() * window.innerWidth + 'px';
+    sock.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    document.body.appendChild(sock);
+    setTimeout(() => sock.remove(), 10000);
+  }
+
+  setInterval(createSnowflake, 200);
+  setInterval(createGift, 1000);
+  setInterval(createSock, 1500);
+
+  // Кнопки
+  $('#option-a').click(function() {
+    $('#alert-a').show();
+    $('#alert-b, #alert-c, #alert-d,#alert-e').hide();
+  });
+  $('#option-b').click(function() {
+    $('#alert-b').show();
+    $('#alert-a, #alert-c, #alert-d,#alert-e').hide();
+  });
+  $('#option-c').click(function() {
+    $('#alert-c').show();
+    $('#alert-a, #alert-b, #alert-d,#alert-e').hide();
+  });
+  $('#option-d').click(function() {
+    $('#alert-d').show();
+    $('#alert-a, #alert-b, #alert-c,#alert-e').hide();
+  });
+  $('#option-e').click(function() {
+    $('#alert-e').show();
+    $('#alert-a, #alert-b, #alert-c,#alert-d').hide();
+  });
+</script>
+
+</body>
+</html>
